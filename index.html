@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free IT Outsourcing Resources — DeepSource Technologies</title>
+<meta name="description" content="5 free resources for IT leaders in the UAE and KSA. Download guides, reports and frameworks — no fluff, just tools you can use this week.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0A0C14;
+  --blue: #5E7AF8;
+  --blue-light: #A8BDF4;
+  --blue-pale: #EDF1F7;
+  --muted: rgba(255,255,255,0.45);
+  --line: rgba(255,255,255,0.08);
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(94,122,248,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ink);
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NOISE LAYER */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
+
+/* GLOW BLOBS */
+.blob {
+  position: fixed; border-radius: 50%;
+  filter: blur(80px); pointer-events: none; z-index: 0;
+}
+.blob-1 { width: 600px; height: 600px; background: rgba(94,122,248,0.12); top: -200px; right: -200px; }
+.blob-2 { width: 400px; height: 400px; background: rgba(168,189,244,0.07); bottom: 0; left: -100px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,12,20,0.8);
+  backdrop-filter: blur(16px);
+}
+.logo { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 500; letter-spacing: -0.02em; }
+.logo span { color: var(--blue); }
+.nav-cta {
+  background: var(--blue); color: #fff;
+  border: none; padding: 9px 20px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+  cursor: pointer; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: flex-start;
+  padding: 140px 48px 80px;
+  max-width: 1100px; margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(94,122,248,0.3); border-radius: 100px;
+  padding: 5px 14px; font-size: 11px; font-weight: 500;
+  color: var(--blue-light); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s ease both;
+}
+.eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(44px, 6.5vw, 82px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  max-width: 820px;
+  animation: fadeUp 0.6s ease 0.1s both;
+}
+.hero h1 em { font-style: italic; color: var(--blue); }
+.hero-sub {
+  font-size: 17px; font-weight: 300; color: var(--muted);
+  line-height: 1.7; max-width: 520px; margin-bottom: 48px;
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+.hero-arrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--blue-light); cursor: pointer;
+  text-decoration: none; animation: fadeUp 0.6s ease 0.3s both;
+  transition: gap 0.2s;
+}
+.hero-arrow:hover { gap: 14px; }
+.hero-arrow svg { transition: transform 0.2s; }
+.hero-arrow:hover svg { transform: translateY(3px); }
+
+/* PROOF STRIP */
+.proof {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 48px;
+  display: flex; gap: 48px; align-items: center;
+  overflow-x: auto;
+}
+.proof-item { flex-shrink: 0; }
+.proof-num { font-family: 'Instrument Serif', serif; font-size: 28px; color: #fff; }
+.proof-num span { color: var(--blue); }
+.proof-label { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 2px; }
+.proof-divider { width: 1px; height: 36px; background: var(--line); flex-shrink: 0; }
+
+/* HOOK SECTION */
+.hook {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  padding: 80px 48px;
+}
+.hook-inner {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 48px;
+  background: rgba(94,122,248,0.05);
+  display: grid; grid-template-columns: 1fr 1px 1fr;
+  gap: 48px; align-items: center;
+}
+.hook-divider { background: var(--line); }
+.hook-tag { font-size: 11px; color: var(--blue); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 16px; }
+.hook-quote {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px; line-height: 1.5;
+  color: #fff;
+}
+.hook-quote em { color: var(--blue); font-style: italic; }
+.hook-source { margin-top: 16px; font-size: 12px; color: var(--muted); }
+.hook-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hook-stat { padding: 18px; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); }
+.hook-stat-val { font-family: 'Instrument Serif', serif; font-size: 30px; color: var(--blue); }
+.hook-stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 4px; }
+
+/* RESOURCES */
+.resources {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 48px 100px;
+}
+.resources-header { margin-bottom: 48px; }
+.section-label { font-size: 11px; color: var(--blue); font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 12px; }
+.section-title { font-family: 'Instrument Serif', serif; font-size: 36px; line-height: 1.15; }
+.section-sub { font-size: 15px; color: var(--muted); margin-top: 10px; line-height: 1.6; max-width: 480px; }
+
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 48px; }
+
+.resource-card {
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 28px;
+  background: var(--card-bg);
+  display: flex; flex-direction: column; gap: 16px;
+  transition: border-color 0.25s, transform 0.25s;
+  cursor: pointer; text-decoration: none;
+  position: relative; overflow: hidden;
+}
+.resource-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: var(--blue); opacity: 0;
+  transition: opacity 0.25s;
+}
+.resource-card:hover { border-color: rgba(94,122,248,0.4); transform: translateY(-3px); }
+.resource-card:hover::before { opacity: 1; }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.card-type {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+}
+.type-report { background: rgba(94,122,248,0.12); color: var(--blue-light); }
+.type-guide { background: rgba(29,158,117,0.12); color: #5DCAA5; }
+.type-case { background: rgba(215,90,48,0.12); color: #F0997B; }
+.card-format { font-size: 10px; color: var(--muted); }
+.card-title { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 500; line-height: 1.35; color: #fff; }
+.card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+.card-hook {
+  font-size: 12px; color: var(--blue-light);
+  border-left: 2px solid var(--blue);
+  padding-left: 12px; line-height: 1.55;
+}
+.card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--line); }
+.card-pages { font-size: 11px; color: var(--muted); }
+.card-dl {
+  font-size: 12px; font-weight: 500; color: var(--blue);
+  display: flex; align-items: center; gap: 5px;
+}
+.card-dl svg { transition: transform 0.2s; }
+.resource-card:hover .card-dl svg { transform: translateY(2px); }
+
+/* CASE STUDY FULL WIDTH */
+.case-card {
+  border: 1px solid rgba(240,153,123,0.2);
+  border-radius: 14px;
+  padding: 36px;
+  background: rgba(215,90,48,0.04);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 36px; align-items: center;
+  margin-bottom: 48px;
+  text-decoration: none;
+  transition: border-color 0.25s;
+  cursor: pointer;
+}
+.case-card:hover { border-color: rgba(240,153,123,0.4); }
+.case-label { font-size: 10px; color: #F0997B; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 14px; }
+.case-title { font-family: 'Instrument Serif', serif; font-size: 26px; line-height: 1.2; color: #fff; margin-bottom: 16px; }
+.case-body { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.case-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.case-metric { border: 1px solid rgba(240,153,123,0.15); border-radius: 10px; padding: 18px; background: rgba(240,153,123,0.04); }
+.case-metric-val { font-family: 'Instrument Serif', serif; font-size: 28px; color: #F0997B; }
+.case-metric-label { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+/* FORM SECTION */
+.form-section {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--line);
+}
+.form-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 80px 48px;
+  display: grid; grid-template-columns: 1fr 1px 1fr;
+  gap: 64px; align-items: start;
+}
+.form-divider { background: var(--line); }
+.form-left .section-title { font-size: 32px; }
+.form-left p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-top: 16px; }
+.form-what { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+.form-what-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.form-check { width: 18px; height: 18px; border-radius: 50%; background: rgba(94,122,248,0.15); border: 1px solid rgba(94,122,248,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.form-check svg { color: var(--blue); }
+
+form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.02em; }
+.form-group input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px; padding: 11px 14px;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; color: #fff;
+  transition: border-color 0.2s;
+  outline: none; width: 100%;
+}
+.form-group input::placeholder { color: rgba(255,255,255,0.25); }
+.form-group input:focus { border-color: var(--blue); }
+.form-submit {
+  background: var(--blue); color: #fff;
+  border: none; padding: 14px 24px;
+  border-radius: 8px; font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500; cursor: pointer;
+  transition: opacity 0.2s; margin-top: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.form-submit:hover { opacity: 0.85; }
+.form-trust { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px; }
+
+/* SUCCESS STATE */
+.form-success { display: none; text-align: center; padding: 32px; border: 1px solid rgba(29,158,117,0.3); border-radius: 12px; background: rgba(29,158,117,0.06); }
+.form-success h3 { font-family: 'Instrument Serif', serif; font-size: 24px; margin-bottom: 8px; }
+.form-success p { font-size: 13px; color: var(--muted); }
+
+/* FOOTER */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--line);
+  padding: 32px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-logo { font-size: 15px; font-weight: 500; }
+.footer-logo span { color: var(--blue); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); max-width: 600px; text-align: center; line-height: 1.5; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .hero, .hook, .resources { padding-left: 20px; padding-right: 20px; }
+  .hero { padding-top: 100px; }
+  .hook-inner { grid-template-columns: 1fr; }
+  .hook-divider { display: none; }
+  .case-card { grid-template-columns: 1fr; }
+  .form-inner { grid-template-columns: 1fr; }
+  .form-divider { display: none; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  .proof { padding: 20px; gap: 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Deep<span>Source</span></div>
+  <a href="#get-resources" class="nav-cta">Get free resources</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <div class="eyebrow-dot"></div>
+    Free resources · UAE & KSA IT leaders
+  </div>
+  <h1>Your next IT hire<br>costs more than<br>you <em>think it does.</em></h1>
+  <p class="hero-sub">The salary is just the beginning. We've put together 5 free resources — reports, guides, and a real case study — so you can see the full picture and decide what's right for your team.</p>
+  <a href="#resources" class="hero-arrow">
+    See the resources
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof">
+  <div class="proof-item">
+    <div class="proof-num">1.5<span>×–2×</span></div>
+    <div class="proof-label">True annual cost of<br>a permanent IT hire in GCC</div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-num">66 <span style="font-size:18px;">days</span></div>
+    <div class="proof-label">Average time to fill<br>a technical IT role — IDC 2025</div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-num">230<span>K</span></div>
+    <div class="proof-label">ICT professionals needed in KSA<br>by 2030 — MCIT Saudi Arabia</div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-num">1 <span style="font-size:18px;">week</span></div>
+    <div class="proof-label">DeepSource first candidate<br>round delivery</div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-num">5<span>+</span></div>
+    <div class="proof-label">Countries · UAE, KSA,<br>Egypt, Morocco, Germany</div>
+  </div>
+</div>
+
+<!-- HOOK SECTION -->
+<section class="hook">
+  <div class="hook-inner">
+    <div>
+      <div class="hook-tag">The real problem</div>
+      <div class="hook-quote">
+        "Saudi Arabia needs <em>230,000 ICT professionals</em> by 2030. It graduates 20,000 per year.<br><br>The gap is not closing. It is widening."
+      </div>
+      <div class="hook-source">Source: MCIT Saudi Arabia — Ministry of Communications & IT</div>
+    </div>
+    <div class="hook-divider"></div>
+    <div class="hook-stats">
+      <div class="hook-stat">
+        <div class="hook-stat-val">76%</div>
+        <div class="hook-stat-label">of companies directly hit by IT talent shortage — ManpowerGroup 2025</div>
+      </div>
+      <div class="hook-stat">
+        <div class="hook-stat-val">30%</div>
+        <div class="hook-stat-label">of UAE firms cannot recruit qualified AI talent — Mordor Intelligence</div>
+      </div>
+      <div class="hook-stat">
+        <div class="hook-stat-val">$5.5T</div>
+        <div class="hook-stat-label">projected losses from IT talent shortage by 2026 — IDC Research</div>
+      </div>
+      <div class="hook-stat">
+        <div class="hook-stat-val">20%</div>
+        <div class="hook-stat-label">tech role shortfall in KSA — vacancies vs. local talent — Nucamp/MCIT 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources" id="resources">
+  <div class="resources-header">
+    <div class="section-label">Week 1 resources</div>
+    <div class="section-title">Five things worth<br>reading this week.</div>
+    <div class="section-sub">No fluff. Each one was built to answer a question your team is probably already asking.</div>
+  </div>
+
+  <!-- CASE STUDY — FULL WIDTH HERO CARD -->
+  <a href="#get-resources" class="case-card">
+    <div>
+      <div class="case-label">Real case study · Featured</div>
+      <div class="case-title">Two Level 2 engineers.<br>Two weeks. First batch selected.</div>
+      <p class="case-body">A client needed technically strong, customer-facing IT support for a project-based assignment. They'd tried before. Endless interviews, weak profiles, no real fit. Here's exactly what DeepSource did differently — and how one request became a long-term partnership.</p>
+      <div style="margin-top:20px; display:flex; align-items:center; gap:8px; font-size:13px; color:var(--blue-light);">
+        Read the full case study
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">2 wks</div>
+        <div class="case-metric-label">Request to first candidate round</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">2/3</div>
+        <div class="case-metric-label">Selected from first batch</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">1st</div>
+        <div class="case-metric-label">Interview — first candidate approved immediately</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">Saudi</div>
+        <div class="case-metric-label">Talent sourced proactively — Saudization compliance built in</div>
+      </div>
+    </div>
+  </a>
+
+  <!-- 4 RESOURCE CARDS -->
+  <div class="resource-grid">
+    <a href="#get-resources" class="resource-card">
+      <div class="card-top">
+        <span class="card-type type-report">Report</span>
+        <span class="card-format">PDF · 5 pages</span>
+      </div>
+      <div class="card-title">The MENA IT Talent Shortage Report 2025</div>
+      <div class="card-hook">Saudi Arabia needs 230,000 ICT professionals by 2030. It graduates 20,000 per year. This report explains what that means for your team — with data from 15 credible sources.</div>
+      <div class="card-desc">Global and regional data on the IT talent crisis, the roles under most pressure in UAE and KSA, what leading organisations are doing differently, and a 3-step action framework.</div>
+      <div class="card-footer">
+        <span class="card-pages">WEF · ManpowerGroup · IDC · MCIT Saudi Arabia · Korn Ferry</span>
+        <span class="card-dl">
+          Download free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a href="#get-resources" class="resource-card">
+      <div class="card-top">
+        <span class="card-type type-guide">Guide</span>
+        <span class="card-format">Word · 4 pages</span>
+      </div>
+      <div class="card-title">The Hidden Costs of In-House IT Hiring</div>
+      <div class="card-hook">A role with an AED 25,000/month salary costs AED 450,000–600,000 per year when all factors are included. Most leaders are surprised when they see the full number.</div>
+      <div class="card-desc">A cost comparison framework built for GCC market rates. Breaks down every hidden cost category, shows the true year-one total, and includes a fillable calculator to run the numbers for your own role.</div>
+      <div class="card-footer">
+        <span class="card-pages">Built for UAE & KSA market rates</span>
+        <span class="card-dl">
+          Download free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a href="#get-resources" class="resource-card">
+      <div class="card-top">
+        <span class="card-type type-guide">Playbook</span>
+        <span class="card-format">Word · 30-day plan</span>
+      </div>
+      <div class="card-title">The IT Manager's Outsourcing Playbook</div>
+      <div class="card-hook">Most outsourcing engagements fail not because of bad intent — but because of vague briefs, no screening process, and no onboarding plan. This playbook fixes all three.</div>
+      <div class="card-desc">A day-by-day 30-day programme across 4 phases: Define & Align, Select & Contract, Brief & Deploy, Onboard & Manage. Every phase has a checklist you can tick off as you go.</div>
+      <div class="card-footer">
+        <span class="card-pages">Phases 01–04 · Full checklists · 10 rules</span>
+        <span class="card-dl">
+          Download free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a href="#get-resources" class="resource-card">
+      <div class="card-top">
+        <span class="card-type type-case">Case study</span>
+        <span class="card-format">Word · 1 page</span>
+      </div>
+      <div class="card-title">Outsourcing Done Right — One-Page Summary</div>
+      <div class="card-hook">Closed from the first candidate batch. One approved on the spot in the first interview. Saudi talent delivered without being asked. Here are the 4 lessons every company should take from this.</div>
+      <div class="card-desc">The condensed version of the full case study — key metrics, the delivery approach, what made it work, and what other companies can learn. Designed to be shared with leadership in 2 minutes.</div>
+      <div class="card-footer">
+        <span class="card-pages">Quick read · Perfect for leadership sharing</span>
+        <span class="card-dl">
+          Download free
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section" id="get-resources">
+  <div class="form-inner">
+    <div class="form-left">
+      <div class="section-label">Get all 5 free</div>
+      <div class="section-title">Fill in once.<br>Download everything.</div>
+      <p>No spam. We'll follow up once — a short personal note from the DeepSource team. That's it.</p>
+      <div class="form-what">
+        <div class="form-what-item">
+          <div class="form-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Full MENA IT Talent Shortage Report 2025
+        </div>
+        <div class="form-what-item">
+          <div class="form-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          The Hidden Costs of In-House IT Hiring
+        </div>
+        <div class="form-what-item">
+          <div class="form-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          The IT Manager's Outsourcing Playbook
+        </div>
+        <div class="form-what-item">
+          <div class="form-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Full case study — Outsourcing Done Right
+        </div>
+        <div class="form-what-item">
+          <div class="form-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          One-page case study summary
+        </div>
+      </div>
+    </div>
+    <div class="form-divider"></div>
+    <div>
+      <form id="lead-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company name" required>
+        </div>
+        <button type="submit" class="form-submit">
+          Send me the resources
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="form-trust">No spam. One follow-up. We respect your inbox.</p>
+      </form>
+      <div class="form-success" id="form-success">
+        <h3>Check your inbox.</h3>
+        <p>Your resources are on their way. If you don't see them within a few minutes, check your spam folder.<br><br>A member of the DeepSource team will follow up shortly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Deep<span>Source</span></div>
+  <div class="footer-disclaimer">This content is provided for informational purposes only and does not constitute legal, financial, or professional advice. DeepSource Technologies accepts no liability for decisions made based on the information contained herein.</div>
+  <div class="footer-links">
+    <a href="https://deepsource.ai" target="_blank">deepsource.ai</a>
+    <a href="mailto:info@deepsource.ai">info@deepsource.ai</a>
+    <a href="https://linkedin.com/company/deepsourceai" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('lead-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
