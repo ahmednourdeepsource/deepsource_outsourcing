@@ -32,22 +32,22 @@ body {
 
 /* Multi-gradient section backgrounds */
 .hero {
-  background: linear-gradient(160deg, #060d1f 0%, #0a1840 45%, #1040a0 75%, #0a1840 100%);
+  background: linear-gradient(180deg, #060d1f 0%, #0d1f4a 30%, #0e2560 60%, #091535 100%);
 }
 .proof {
-  background: linear-gradient(90deg, #050e22 0%, #0d2060 50%, #050e22 100%);
+  background: linear-gradient(90deg, #091535 0%, #0e2560 50%, #091535 100%);
 }
 .hook {
-  background: linear-gradient(135deg, #060e25 0%, #0b1e55 35%, #1550c8 65%, #0a1840 100%);
+  background: linear-gradient(135deg, #091535 0%, #0f2260 40%, #1240a8 70%, #0a1a48 100%);
 }
 .resources {
-  background: linear-gradient(160deg, #050c1e 0%, #091840 40%, #0d2870 70%, #060e25 100%);
+  background: linear-gradient(180deg, #060f22 0%, #0a1840 35%, #0e2560 65%, #091535 100%);
 }
 .form-section {
-  background: linear-gradient(135deg, #04080f 0%, #091535 30%, #1040a0 60%, #07152e 100%);
+  background: linear-gradient(180deg, #091535 0%, #0d2060 40%, #0f2870 70%, #060d22 100%);
 }
 footer {
-  background: linear-gradient(90deg, #04080f 0%, #0a1840 50%, #04080f 100%);
+  background: linear-gradient(90deg, #060d22 0%, #091535 50%, #060d22 100%);
 }
 
 /* NOISE LAYER */
@@ -72,7 +72,7 @@ body::before {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 48px;
+  padding: 14px 48px;
   border-bottom: 1px solid var(--line);
   background: rgba(8,10,30,0.85);
   backdrop-filter: blur(16px);
@@ -80,8 +80,8 @@ nav {
 .logo { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 500; letter-spacing: -0.02em; }
 .logo span { color: var(--blue); }
 .logo-img-link { display: flex; align-items: center; text-decoration: none; }
-.nav-logo-img { height: 72px; width: auto; object-fit: contain;  }
-.footer-logo-img { height: 28px; width: auto; object-fit: contain;  opacity: 0.85; }
+.nav-logo-img { height: 100px; width: auto; object-fit: contain;  }
+.footer-logo-img { height: 72px; width: auto; object-fit: contain; opacity: 0.95; }
 .nav-cta {
   background: var(--blue); color: #fff;
   border: none; padding: 9px 20px; border-radius: 6px;
@@ -147,8 +147,8 @@ nav {
   box-sizing: border-box;
 }
 .proof-item { flex-shrink: 0; }
-.proof-num { font-family: 'Instrument Serif', serif; font-size: 28px; color: #fff; }
-.proof-num span { color: var(--blue); }
+.proof-num { font-family: 'Instrument Serif', serif; font-size: 32px; color: #ffffff; font-weight: 700; text-shadow: 0 0 40px rgba(94,170,255,0.4); }
+.proof-num span { color: #60aaff; }
 .proof-label { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 2px; }
 .proof-divider { width: 1px; height: 36px; background: var(--line); flex-shrink: 0; }
 
@@ -178,8 +178,8 @@ nav {
 .hook-source { margin-top: 16px; font-size: 12px; color: var(--muted); }
 .hook-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .hook-stat { padding: 18px; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); }
-.hook-stat-val { font-family: 'Instrument Serif', serif; font-size: 30px; color: var(--blue); }
-.hook-stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 4px; }
+.hook-stat-val { font-family: 'Instrument Serif', serif; font-size: 34px; color: #ffffff; font-weight: 700; text-shadow: 0 0 30px rgba(94,170,255,0.5); }
+.hook-stat-label { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.4; margin-top: 4px; }
 
 /* RESOURCES */
 .resources {
@@ -258,7 +258,7 @@ nav {
 .case-body { font-size: 14px; color: var(--muted); line-height: 1.7; }
 .case-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .case-metric { border: 1px solid rgba(240,153,123,0.15); border-radius: 10px; padding: 18px; background: rgba(240,153,123,0.04); }
-.case-metric-val { font-family: 'Instrument Serif', serif; font-size: 28px; color: #F0997B; }
+.case-metric-val { font-family: 'Instrument Serif', serif; font-size: 32px; color: #ffb899; font-weight: 700; text-shadow: 0 0 20px rgba(255,140,100,0.4); }
 .case-metric-label { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 
 /* FORM SECTION */
